@@ -1,0 +1,15 @@
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS
+.DS_Store
+Thumbs.db
