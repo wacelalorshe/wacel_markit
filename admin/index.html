@@ -6,177 +6,334 @@
     <title>لوحة التحكم - WacelMarkt</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-sans">
     <div class="flex h-screen">
         <!-- الشريط الجانبي -->
-        <div class="w-64 bg-white shadow-lg">
-            <div class="p-6">
+        <div class="w-64 bg-white shadow-lg flex flex-col">
+            <!-- الشعار -->
+            <div class="p-6 border-b">
                 <div class="flex items-center">
                     <i class="fas fa-store text-2xl text-blue-600 mr-2"></i>
-                    <span class="text-xl font-bold">لوحة التحكم</span>
+                    <div>
+                        <span class="text-xl font-bold block">WacelMarkt</span>
+                        <span class="text-sm text-gray-500">لوحة التحكم</span>
+                    </div>
                 </div>
             </div>
-            <nav class="mt-6">
-                <a href="#" class="block py-3 px-6 bg-blue-100 text-blue-600 border-r-4 border-blue-600">
-                    <i class="fas fa-tachometer-alt mr-2"></i>الإحصائيات
-                </a>
-                <a href="#apps" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">
-                    <i class="fas fa-mobile-alt mr-2"></i>إدارة التطبيقات
-                </a>
-                <a href="#categories" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">
-                    <i class="fas fa-tags mr-2"></i>الفئات
-                </a>
-                <a href="#users" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">
-                    <i class="fas fa-users mr-2"></i>المستخدمين
-                </a>
+
+            <!-- القائمة -->
+            <nav class="flex-1 p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt mr-3"></i>
+                            <span>الإحصائيات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#apps" class="nav-item" data-section="apps">
+                            <i class="fas fa-mobile-alt mr-3"></i>
+                            <span>إدارة التطبيقات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#categories" class="nav-item" data-section="categories">
+                            <i class="fas fa-tags mr-3"></i>
+                            <span>الفئات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#users" class="nav-item" data-section="users">
+                            <i class="fas fa-users mr-3"></i>
+                            <span>المستخدمين</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings" class="nav-item" data-section="settings">
+                            <i class="fas fa-cog mr-3"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
             </nav>
+
+            <!-- تذييل الشريط الجانبي -->
+            <div class="p-4 border-t">
+                <a href="../" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>العودة للمتجر</span>
+                </a>
+            </div>
         </div>
 
         <!-- المحتوى الرئيسي -->
-        <div class="flex-1 overflow-auto">
+        <div class="flex-1 flex flex-col overflow-hidden">
             <!-- شريط العنوان -->
             <header class="bg-white shadow-sm">
                 <div class="flex justify-between items-center p-6">
-                    <h1 class="text-2xl font-bold text-gray-800">لوحة التحكم</h1>
+                    <h1 class="text-2xl font-bold text-gray-800" id="pageTitle">لوحة التحكم</h1>
                     <div class="flex items-center space-x-4 space-x-reverse">
-                        <button id="addAppBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        <button id="addAppBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
                             <i class="fas fa-plus mr-2"></i>إضافة تطبيق
                         </button>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </div>
+                            <span class="text-gray-700">مدير النظام</span>
+                        </div>
                     </div>
                 </div>
             </header>
 
-            <!-- الإحصائيات -->
-            <section class="p-6">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-blue-100 rounded-lg">
-                                <i class="fas fa-mobile-alt text-blue-600 text-xl"></i>
+            <!-- المحتوى -->
+            <main class="flex-1 overflow-auto p-6">
+                <!-- قسم الإحصائيات -->
+                <section id="dashboard" class="section active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="stat-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-blue-100 rounded-lg mr-4">
+                                    <i class="fas fa-mobile-alt text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-500 text-sm">إجمالي التطبيقات</h3>
+                                    <p id="totalApps" class="text-2xl font-bold">0</p>
+                                </div>
                             </div>
-                            <div class="mr-4">
-                                <h3 class="text-gray-500">إجمالي التطبيقات</h3>
-                                <p id="totalApps" class="text-2xl font-bold">0</p>
+                        </div>
+                        <div class="stat-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-500">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-green-100 rounded-lg mr-4">
+                                    <i class="fas fa-download text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-500 text-sm">إجمالي التحميلات</h3>
+                                    <p id="totalDownloads" class="text-2xl font-bold">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-purple-100 rounded-lg mr-4">
+                                    <i class="fas fa-star text-purple-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-500 text-sm">متوسط التقييم</h3>
+                                    <p id="averageRating" class="text-2xl font-bold">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-red-100 rounded-lg mr-4">
+                                    <i class="fas fa-users text-red-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-500 text-sm">المستخدمين النشطين</h3>
+                                    <p id="activeUsers" class="text-2xl font-bold">1,234</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-green-100 rounded-lg">
-                                <i class="fas fa-download text-green-600 text-xl"></i>
-                            </div>
-                            <div class="mr-4">
-                                <h3 class="text-gray-500">إجمالي التحميلات</h3>
-                                <p id="totalDownloads" class="text-2xl font-bold">0</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-purple-100 rounded-lg">
-                                <i class="fas fa-star text-purple-600 text-xl"></i>
-                            </div>
-                            <div class="mr-4">
-                                <h3 class="text-gray-500">متوسط التقييم</h3>
-                                <p id="averageRating" class="text-2xl font-bold">0</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-red-100 rounded-lg">
-                                <i class="fas fa-users text-red-600 text-xl"></i>
-                            </div>
-                            <div class="mr-4">
-                                <h3 class="text-gray-500">المستخدمين النشطين</h3>
-                                <p id="activeUsers" class="text-2xl font-bold">0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- قائمة التطبيقات -->
-            <section id="apps" class="p-6">
-                <div class="bg-white rounded-lg shadow-sm">
-                    <div class="p-6 border-b">
-                        <h2 class="text-xl font-bold">إدارة التطبيقات</h2>
+                    <!-- الرسوم البيانية -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h3 class="text-lg font-semibold mb-4">التطبيقات حسب الفئة</h3>
+                            <div id="categoryChart" class="h-64">
+                                <!-- سيتم تعبئة هذا القسم بالرسم البياني -->
+                                <div class="flex items-center justify-center h-full text-gray-500">
+                                    <div class="text-center">
+                                        <i class="fas fa-chart-pie text-4xl mb-2"></i>
+                                        <p>جاري تحميل البيانات...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h3 class="text-lg font-semibold mb-4">أحدث التطبيقات</h3>
+                            <div id="recentApps">
+                                <!-- سيتم تعبئة هذا القسم بالتطبيقات الحديثة -->
+                                <div class="text-center py-8 text-gray-500">
+                                    <i class="fas fa-mobile-alt text-4xl mb-2"></i>
+                                    <p>جاري تحميل التطبيقات...</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead>
-                                <tr class="bg-gray-50">
-                                    <th class="px-6 py-3 text-right">التطبيق</th>
-                                    <th class="px-6 py-3 text-right">الفئة</th>
-                                    <th class="px-6 py-3 text-right">التقييم</th>
-                                    <th class="px-6 py-3 text-right">التحميلات</th>
-                                    <th class="px-6 py-3 text-right">الحالة</th>
-                                    <th class="px-6 py-3 text-right">الإجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody id="appsTableBody">
-                                <!-- سيتم تعبئة هذا القسم بالبيانات -->
-                            </tbody>
-                        </table>
+                </section>
+
+                <!-- قسم إدارة التطبيقات -->
+                <section id="apps" class="section hidden">
+                    <div class="bg-white rounded-xl shadow-sm">
+                        <div class="p-6 border-b">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-xl font-bold">إدارة التطبيقات</h2>
+                                <div class="flex space-x-3 space-x-reverse">
+                                    <select id="categoryFilter" class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="all">جميع الفئات</option>
+                                        <option value="ألعاب">الألعاب</option>
+                                        <option value="أعمال">الأعمال</option>
+                                        <option value="تعليم">التعليم</option>
+                                        <option value="تصميم">التصميم</option>
+                                    </select>
+                                    <input type="text" id="appSearch" placeholder="بحث في التطبيقات..." class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-gray-50">
+                                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">التطبيق</th>
+                                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الفئة</th>
+                                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">التقييم</th>
+                                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">التحميلات</th>
+                                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الحالة</th>
+                                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appsTableBody" class="bg-white divide-y divide-gray-200">
+                                    <!-- سيتم تعبئة هذا القسم بالبيانات -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="p-4 border-t bg-gray-50">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">
+                                    عرض <span id="showingCount">0</span> من <span id="totalCount">0</span> تطبيق
+                                </div>
+                                <div class="flex space-x-2 space-x-reverse">
+                                    <button id="prevPage" class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50">السابق</button>
+                                    <button id="nextPage" class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50">التالي</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+
+                <!-- الأقسام الأخرى -->
+                <section id="categories" class="section hidden">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold mb-6">إدارة الفئات</h2>
+                        <div class="text-center py-12 text-gray-500">
+                            <i class="fas fa-tags text-4xl mb-4"></i>
+                            <p>قريباً...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="users" class="section hidden">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold mb-6">إدارة المستخدمين</h2>
+                        <div class="text-center py-12 text-gray-500">
+                            <i class="fas fa-users text-4xl mb-4"></i>
+                            <p>قريباً...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="settings" class="section hidden">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold mb-6">الإعدادات</h2>
+                        <div class="text-center py-12 text-gray-500">
+                            <i class="fas fa-cog text-4xl mb-4"></i>
+                            <p>قريباً...</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
     </div>
 
-    <!-- مودال إضافة تطبيق -->
-    <div id="appModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-lg w-full max-w-2xl mx-4">
+    <!-- مودال إضافة/تعديل تطبيق -->
+    <div id="appModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div class="p-6 border-b">
-                <h3 class="text-xl font-bold">إضافة تطبيق جديد</h3>
+                <h3 class="text-xl font-bold" id="modalTitle">إضافة تطبيق جديد</h3>
             </div>
-            <form id="appForm" class="p-6 space-y-4">
-                <div class="grid grid-cols-2 gap-4">
+            <form id="appForm" class="p-6 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">اسم التطبيق</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">اسم التطبيق *</label>
                         <input type="text" name="name" required 
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                               class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">الفئة</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">الفئة *</label>
                         <select name="category" required 
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="ألعاب">ألعاب</option>
-                            <option value="أعمال">أعمال</option>
-                            <option value="تعليم">تعليم</option>
-                            <option value="تصميم">تصميم</option>
+                                class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">اختر الفئة</option>
+                            <option value="ألعاب">الألعاب</option>
+                            <option value="أعمال">الأعمال</option>
+                            <option value="تعليم">التعليم</option>
+                            <option value="تصميم">التصميم</option>
+                            <option value="صحة">الصحة</option>
+                            <option value="اجتماعية">اجتماعية</option>
+                            <option value="أخرى">أخرى</option>
                         </select>
                     </div>
                 </div>
+
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">الوصف</label>
-                    <textarea name="description" required rows="3"
-                              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">الوصف *</label>
+                    <textarea name="description" required rows="4"
+                              class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              placeholder="وصف مختصر للتطبيق..."></textarea>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">رابط التحميل</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">رابط التحميل *</label>
                         <input type="url" name="downloadUrl" required 
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                               class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               placeholder="https://example.com/download">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">صورة التطبيق</label>
-                        <input type="file" name="icon" accept="image/*" required 
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">صورة التطبيق *</label>
+                        <input type="file" name="icon" accept="image/*" 
+                               class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               id="iconInput">
+                        <div id="imagePreview" class="mt-2 hidden">
+                            <img id="previewImage" class="w-20 h-20 object-cover rounded-lg border">
+                        </div>
                     </div>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">التقييم</label>
+                        <input type="number" name="rating" min="0" max="5" step="0.1" 
+                               class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               value="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">عدد التحميلات</label>
+                        <input type="number" name="downloads" min="0"
+                               class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               value="0">
+                    </div>
+                </div>
+
                 <div class="flex items-center space-x-4 space-x-reverse">
-                    <input type="checkbox" name="featured" id="featured" class="rounded text-blue-600">
+                    <input type="checkbox" name="featured" id="featured" class="rounded text-blue-600 focus:ring-blue-500">
                     <label for="featured" class="text-sm text-gray-700">تطبيق مميز</label>
                 </div>
             </form>
             <div class="p-6 border-t flex justify-end space-x-3 space-x-reverse">
-                <button type="button" onclick="closeModal()" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">إلغاء</button>
-                <button type="submit" form="appForm" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">حفظ</button>
+                <button type="button" onclick="closeModal()" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">إلغاء</button>
+                <button type="submit" form="appForm" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+                    <i class="fas fa-save mr-2"></i>حفظ
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- رسائل التنبيه -->
+    <div id="toast" class="fixed top-4 right-4 hidden z-50"></div>
 
     <script type="module" src="../public/js/firebase-config.js"></script>
     <script type="module" src="js/admin.js"></script>
