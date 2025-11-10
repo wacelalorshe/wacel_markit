@@ -1,0 +1,14 @@
+{
+  "name": "wacelmarkt-app-store",
+  "version": "1.0.0",
+  "description": "Professional App Store with Dashboard",
+  "type": "module",
+  "scripts": {
+    "dev": "firebase serve",
+    "deploy": "firebase deploy",
+    "build": "echo 'No build process needed'"
+  },
+  "dependencies": {
+    "firebase": "^9.6.10"
+  }
+}
